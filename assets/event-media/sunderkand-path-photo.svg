@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b1a1a"/>
+      <stop offset="100%" stop-color="#e8651a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="190" cy="140" r="80" fill="#fff1c6" opacity="0.11"/>
+  <circle cx="1030" cy="610" r="120" fill="#2e1a0e" opacity="0.1"/>
+  <text x="600" y="280" fill="#fff8ec" font-size="58" text-anchor="middle" font-family="Noto Serif Devanagari, serif">सुंदरकांड पाठ</text>
+  <text x="600" y="360" fill="#ffe3b0" font-size="36" text-anchor="middle" font-family="Noto Serif Devanagari, serif">फोटो प्लेसहोल्डर</text>
+  <text x="600" y="430" fill="#fff8ec" font-size="24" text-anchor="middle" font-family="Noto Serif Devanagari, serif">अपनी event photo यहां बाद में बदलें</text>
+  <text x="600" y="500" fill="#fff8ec" font-size="20" text-anchor="middle" font-family="monospace">sunderkand-path-photo.svg</text>
+</svg>

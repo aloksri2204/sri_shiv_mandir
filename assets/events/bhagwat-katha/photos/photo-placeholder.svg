@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#40210e"/>
+      <stop offset="100%" stop-color="#c9962a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="250" cy="560" r="110" fill="#fff4dc" opacity="0.08"/>
+  <circle cx="980" cy="140" r="95" fill="#f0c84a" opacity="0.1"/>
+  <text x="600" y="280" fill="#fff8ec" font-size="62" text-anchor="middle" font-family="Noto Serif Devanagari, serif">भागवत कथा</text>
+  <text x="600" y="360" fill="#2e1a0e" font-size="36" text-anchor="middle" font-family="Noto Serif Devanagari, serif">फोटो प्लेसहोल्डर</text>
+  <text x="600" y="430" fill="#fff4dc" font-size="24" text-anchor="middle" font-family="Noto Serif Devanagari, serif">अपनी event photo यहां रखें</text>
+  <text x="600" y="500" fill="#fff8ec" font-size="20" text-anchor="middle" font-family="monospace">assets/events/bhagwat-katha/photos</text>
+</svg>

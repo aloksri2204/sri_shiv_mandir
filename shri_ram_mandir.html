@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>श्री शिव मंदिर</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --saffron: #E8651A;
+    --deep-saffron: #B84D0E;
+    --gold: #C9962A;
+    --gold-light: #F0C84A;
+    --cream: #FDF8F0;
+    --dark-brown: #2E1A0E;
+    --red: #8B1A1A;
+    --green: #1B5E20;
+    --text-main: #1C1008;
+    --text-muted: #6B4226;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Serif Devanagari', Georgia, serif;
+    background: var(--cream);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    background: var(--dark-brown);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .nav-logo {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    color: var(--gold-light);
+    font-size: 1.05rem;
+    padding: 1rem 0;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links { display: flex; gap: 0; }
+
+  .nav-links a {
+    color: #F5E8C8;
+    text-decoration: none;
+    padding: 1.1rem 1.1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+    display: block;
+  }
+
+  .nav-links a:hover {
+    background: rgba(201,150,42,0.15);
+    color: var(--gold-light);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold-light);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 720px) {
+    nav { padding: 0 1rem; }
+    .nav-logo { font-size: 0.95rem; padding: 0.9rem 0; }
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--dark-brown);
+      flex-direction: column;
+      border-top: 1px solid rgba(201,150,42,0.3);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 0.9rem 2rem; border-bottom: 1px solid rgba(201,150,42,0.1); }
+  }
+  
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(160deg, #1A0A00 0%, #3D1C00 50%, #2E1A0E 100%);
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(201,150,42,0.13) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 24px, var(--saffron) 24px, var(--saffron) 48px);
+  }
+
+  .om-symbol {
+    font-size: 5rem;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    animation: glow-pulse 3s ease-in-out infinite;
+    text-shadow: 0 0 40px rgba(240,200,74,0.5);
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.9; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.04); }
+  }
+
+  .hero-tag {
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: #FFF5E0;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: #C8A87A;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: #A08060;
+    max-width: 520px;
+    line-height: 1.75;
+    margin: 1.5rem auto 2.5rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3rem 1.5rem; min-height: 85vh; }
+    .om-symbol { font-size: 4rem; margin-bottom: 1rem; }
+    .hero-tag { font-size: 0.75rem; letter-spacing: 0.2em; }
+    .hero-desc { font-size: 1rem; margin: 1rem auto 2rem; }
+    .hero-cta { gap: 0.75rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2.5rem 1rem; }
+    .om-symbol { font-size: 3.5rem; }
+    .hero h1 { font-size: clamp(1.8rem, 8vw, 3rem); }
+    .hero-subtitle { font-size: clamp(0.9rem, 4vw, 1.2rem); }
+    .hero-desc { font-size: 0.95rem; line-height: 1.6; }
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #1C0E00;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    box-shadow: 0 4px 20px rgba(201,150,42,0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--gold-light);
+    border: 1.5px solid var(--gold);
+  }
+
+  .btn-outline:hover { background: rgba(201,150,42,0.1); }
+
+  /* ===== DECORATIVE DIVIDER ===== */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 3rem 2rem;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: var(--gold); opacity: 0.3; }
+  .divider-icon { color: var(--gold); font-size: 1.2rem; }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 960px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    color: var(--dark-brown);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  .section-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 3rem 1.5rem; }
+    .section-sub { font-size: 1rem; margin-bottom: 2.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    section { padding: 2.5rem 1rem; }
+    .section-title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+    .section-sub { font-size: 0.95rem; margin-bottom: 2rem; }
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+
+  .about-text { font-size: 1.1rem; line-height: 1.85; color: #3D1C00; }
+  .about-text p + p { margin-top: 1rem; }
+
+  .about-image {
+    background: transparent;
+    border-radius: 4px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    overflow: hidden;
+  }
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .about-image { height: 340px; }
+  }
+
+  @media (max-width: 480px) {
+    .about-image { height: 280px; }
+  }
+
+  .mandir-photos {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .mandir-photo-card {
+    background: #fffaf1;
+    border: 1px solid rgba(201,150,42,0.26);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .mandir-photo-frame {
+    background: #2E1A0E;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .mandir-photo-frame img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .mandir-photo-caption {
+    padding: 0.85rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .mandir-photos { grid-template-columns: 1fr; }
+    .mandir-photo-frame { min-height: 260px; }
+  }
+
+  @media (max-width: 480px) {
+    .mandir-photo-frame { min-height: 220px; padding: 0.5rem; }
+    .mandir-photo-caption { font-size: 0.86rem; }
+  }
+
+  /* ===== TIMINGS ===== */
+  .timings-bg { background: var(--dark-brown); color: #FFF5E0; }
+  .timings-bg .section-title { color: var(--gold-light); }
+  .timings-bg .section-sub { color: #A08060; }
+
+  .timings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .timings-grid {
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .timings-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+
+  .timing-card {
+    border: 1px solid rgba(201,150,42,0.3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(255,245,224,0.04);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .timing-card:hover {
+    border-color: var(--gold);
+    background: rgba(255,245,224,0.07);
+  }
+
+  .timing-card .puja-name {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .timing-card .time {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #FFF5E0;
+    margin-bottom: 0.3rem;
+  }
+
+  .timing-card .days {
+    font-size: 0.85rem;
+    color: #A08060;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .timing-card { padding: 1rem; }
+    .timing-card .puja-name { font-size: 0.75rem; }
+    .timing-card .time { font-size: 1.4rem; }
+    .timing-card .days { font-size: 0.8rem; }
+  }
+
+  /* ===== EVENTS ===== */
+  .events-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .event-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+
+  .event-date {
+    text-align: center;
+    background: var(--saffron);
+    border-radius: 3px;
+    padding: 0.5rem 0.4rem;
+    color: white;
+  }
+
+  .event-date .day { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+  .event-date .month { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+
+  .event-info h3 {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: 0.9rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.3rem;
+  }
+
+  .event-info p { font-size: 1rem; color: var(--text-muted); line-height: 1.55; }
+
+  @media (max-width: 640px) {
+    .event-item {
+      grid-template-columns: 70px 1fr;
+      gap: 1rem;
+      padding-left: 1rem;
+    }
+    .event-date { padding: 0.4rem 0.3rem; }
+    .event-date .day { font-size: 1.4rem; }
+    .event-date .month { font-size: 0.65rem; }
+  }
+
+  @media (max-width: 480px) {
+    .event-item {
+      grid-template-columns: 60px 1fr;
+      gap: 0.75rem;
+      border-left-width: 2px;
+      padding-left: 0.75rem;
+    }
+    .event-date { padding: 0.3rem 0.2rem; }
+    .event-date .day { font-size: 1.2rem; }
+    .event-date .month { font-size: 0.6rem; }
+    .event-info h3 { font-size: 0.85rem; }
+    .event-info p { font-size: 0.95rem; line-height: 1.5; }
+  }
+
+  /* ===== EVENT MEDIA ===== */
+  .event-media-wrap {
+    margin-top: 3rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .event-media-card {
+    background: #FFF8EC;
+    border: 1px solid rgba(201,150,42,0.28);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .event-media-toggle {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .event-media-toggle-text h3 {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.35rem;
+  }
+
+  .event-media-toggle-text p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .event-media-icon {
+    color: var(--saffron);
+    font-size: 1.4rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .event-media-card.open .event-media-icon {
+    transform: rotate(45deg);
+  }
+
+  .event-media-panel {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid rgba(201,150,42,0.18);
+  }
+
+  .event-media-card.open .event-media-panel {
+    display: block;
+  }
+
+  .event-media-panel-copy {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+  }
+
+  .event-media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .event-media-item {
+    background: #2E1A0E;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(201,150,42,0.22);
+  }
+
+  .event-media-item img + img,
+  .event-media-item video + video {
+    border-top: 1px solid rgba(201,150,42,0.22);
+  }
+
+  .media-stack {
+    display: grid;
+    gap: 0;
+  }
+
+  .media-unit {
+    background: #2E1A0E;
+  }
+
+  .media-unit + .media-unit {
+    border-top: 1px solid rgba(201,150,42,0.22);
+  }
+
+  .event-media-item img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+
+  .event-media-item video {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+    background: #120700;
+  }
+
+  .video-placeholder-box {
+    aspect-ratio: 16 / 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.2rem;
+    color: #fff4dc;
+    background: linear-gradient(160deg, #1c1008 0%, #8b1a1a 100%);
+  }
+
+  .video-placeholder-box strong {
+    font-size: 1.05rem;
+    margin-bottom: 0.45rem;
+    color: var(--gold-light);
+  }
+
+  .video-placeholder-box span {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #f7d787;
+  }
+
+  .media-subtitle {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.84rem;
+    color: #f7d787;
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(201,150,42,0.18);
+  }
+
+  .media-meta {
+    padding: 0.85rem 0.95rem;
+    background: #fffaf1;
+    border-top: 1px solid rgba(201,150,42,0.18);
+  }
+
+  .media-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+  }
+
+  .media-title {
+    color: var(--dark-brown);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+  }
+
+  .media-path {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+
+  @media (max-width: 640px) {
+    .event-media-wrap { margin-top: 2.5rem; }
+    .event-media-toggle { padding: 1rem; }
+    .event-media-panel { padding: 0 1rem 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .event-media-grid { grid-template-columns: 1fr; }
+    .event-media-toggle-text h3 { font-size: 0.92rem; }
+    .event-media-toggle-text p,
+    .event-media-panel-copy { font-size: 0.9rem; }
+    .media-title { font-size: 0.9rem; }
+    .media-path { font-size: 0.78rem; }
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-bg { background: #FFF8EC; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 640px) { .gallery-grid { grid-template-columns: 1fr; } }
+
+  .gallery-item {
+    background: var(--dark-brown);
+    border-radius: 3px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(201,150,42,0.2);
+    font-size: 2.8rem;
+    transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .gallery-item:hover { transform: scale(1.03); border-color: var(--gold); }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-item.full-view {
+    aspect-ratio: auto;
+    min-height: 320px;
+    padding: 0.5rem;
+  }
+
+  .gallery-item.full-view img {
+    height: auto;
+    max-height: none;
+    max-height: 540px;
+    object-fit: contain;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info { font-size: 1.05rem; line-height: 2.1; color: #3D1C00; }
+  .contact-info strong { color: var(--dark-brown); font-weight: 600; }
+
+  .contact-info a { color: var(--saffron); text-decoration: none; }
+  .contact-info a:hover { text-decoration: underline; }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    width: 100%;
+    border: 1px solid rgba(201,150,42,0.35);
+    border-radius: 3px;
+    padding: 0.65rem 0.9rem;
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 1rem;
+    background: #FFFCF5;
+    color: var(--text-main);
+    margin-bottom: 0.85rem;
+    transition: border-color 0.2s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus,
+  .contact-form select:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .contact-form textarea { min-height: 110px; resize: vertical; }
+
+  @media (max-width: 480px) {
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+    .contact-form textarea { min-height: 100px; }
+  }
+
+  .map-embed {
+    width: 100%;
+    height: 260px;
+    border: 1px solid rgba(201,150,42,0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    background: #2E1A0E;
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .pujari-card {
+    margin-top: 1.25rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(201,150,42,0.28);
+    border-radius: 6px;
+    background: #fffaf1;
+  }
+
+  .pujari-card h3 {
+    font-family: 'Noto Serif Devanagari', 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.65rem;
+  }
+
+  .pujari-card p {
+    color: #3D1C00;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .pujari-card p + p {
+    margin-top: 0.45rem;
+  }
+
+  .pujari-media {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.9rem;
+  }
+
+  .pujari-photo {
+    width: 84px;
+    height: 84px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(201,150,42,0.3);
+    flex-shrink: 0;
+    background: #2E1A0E;
+  }
+
+  .pujari-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .map-embed { height: 220px; margin-bottom: 1rem; }
+    .pujari-card { padding: 0.9rem; }
+    .pujari-card h3 { font-size: 0.94rem; }
+    .pujari-card p { font-size: 0.92rem; }
+    .pujari-media { align-items: center; }
+    .pujari-photo { width: 72px; height: 72px; }
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1A0A00;
+    color: #7A5840;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.9rem;
+    border-top: 4px solid var(--gold);
+  }
+
+  footer .footer-om {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 0.75rem 0 1rem;
+  }
+
+  footer .footer-links a {
+    color: #A08060;
+    text-decoration: none;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  footer .footer-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 640px) {
+    footer { padding: 2rem 1.5rem; }
+    footer .footer-links { gap: 1rem; }
+    footer .footer-links a { font-size: 0.85rem; }
+  }
+
+  @media (max-width: 480px) {
+    footer { padding: 1.5rem 1rem; font-size: 0.85rem; }
+    footer .footer-om { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    footer .footer-links { gap: 0.75rem; margin: 0.5rem 0 0.75rem; }
+    footer .footer-links a { font-size: 0.8rem; }
+  }
+
+  /* ===== ANNOUNCEMENT BANNER ===== */
+  .announcement {
+    background: var(--saffron);
+    color: white;
+    text-align: center;
+    padding: 0.6rem 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+
+  .announcement strong { font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .announcement { padding: 0.5rem 1.5rem; font-size: 0.85rem; }
+  }
+
+  @media (max-width: 480px) {
+    .announcement { padding: 0.4rem 1rem; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div class="announcement">
+  🪔 <strong>श्री शिवाय नमस्तुभ्यं</strong> 🪔
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🕉 श्री शिव मंदिर</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">परिचय</a>
+    <a href="#timings">समय</a>
+    <a href="#events">कार्यक्रम</a>
+    <a href="#gallery">गैलरी</a>
+    <a href="#contact">संपर्क</a>
+  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="om-symbol">ॐ</div>
+  <div class="hero-tag">चंद्रा कॉलोनी, गाजीपुर, उत्तर प्रदेश</div>
+  <h1>श्री शिव मंदिर</h1>
+  <div class="hero-subtitle">जय श्री शिव · हर हर महादेव</div>
+  <p class="hero-desc">
+    भक्ति, शांति और दिव्य कृपा का पावन धाम। हमारे मंदिर में सभी श्रद्धालुओं का स्वागत है, जहां आस्था सनातन परंपरा से मिलती है।
+  </p>
+  <div class="hero-cta">
+    <a href="#timings" class="btn btn-primary">दर्शन समय</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <h2 class="section-title">हमारे मंदिर के बारे में</h2>
+    <p class="section-sub">पीढ़ियों से आस्था और आध्यात्मिकता का केंद्र</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>श्री शिव मंदिर एक पवित्र हिंदू मंदिर है, जो पूजा, साधना और सामुदायिक उत्सवों के लिए समर्पित है। हमारा मंदिर भक्तों के लिए एक आध्यात्मिक आश्रय है, जहां लोग प्रार्थना करने, त्योहार मनाने और ईश्वर से अपने संबंध को और गहरा करने आते हैं।</p>
+        <p>सनातन परंपराओं के संरक्षण और प्रसार के संकल्प के साथ, हम सभी श्रद्धालुओं का स्वागत करते हैं। यहां आने वाला प्रत्येक व्यक्ति हमारी आध्यात्मिक परंपराओं, सांस्कृतिक विरासत और भक्ति की सुंदरता का अनुभव कर सकता है।</p>
+      </div>
+      <div class="about-image">
+        <img src="assets/images/shiv-mandir.png" alt="श्री शिव मंदिर का चित्रण">
+        <p style="color:#C9962A; font-style:italic; font-size:0.85rem; margin-top:0.75rem;">श्री शिव मंदिर, चंद्रा कॉलोनी, गाजीपुर</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <div class="divider-icon">✦</div>
+  <div class="divider-line"></div>
+</div>
+
+<!-- TIMINGS -->
+<section id="timings" class="timings-bg">
+  <div class="section-inner">
+    <h2 class="section-title">दर्शन और पूजा समय</h2>
+    <p class="section-sub">मंदिर वर्ष के 365 दिन खुला रहता है · सभी का स्वागत है</p>
+    <div class="timings-grid">
+      <div class="timing-card">
+        <div class="puja-name">मंगला आरती</div>
+        <div class="time">6:30 AM</div>
+        <div class="days">प्रतिदिन</div>
+      </div>
+
+      <div class="timing-card">
+        <div class="puja-name">संध्या आरती</div>
+        <div class="time">6:30 PM</div>
+        <div class="days">प्रतिदिन</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <h2 class="section-title">आगामी कार्यक्रम</h2>
+    <p class="section-sub">हिंदू पंचांग के अनुसार 2026 के आगामी पावन उत्सव और विशेष पूजा अवसर</p>
+    <div class="events-list">
+      <div class="event-item">
+        <div class="event-date"><div class="day">19</div><div class="month">अप्रैल</div></div>
+        <div class="event-info">
+          <h3>अक्षय तृतीया</h3>
+          <p>रविवार, 19 अप्रैल 2026 को अक्षय तृतीया का शुभ पर्व है। इस दिन लक्ष्मी-नारायण पूजन, दान-पुण्य, नई शुरुआत और समृद्धि की मंगल कामना के साथ विशेष पूजा की जा सकती है।</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">23</div><div class="month">अप्रैल</div></div>
+        <div class="event-info">
+          <h3>गंगा सप्तमी</h3>
+          <p>गुरुवार, 23 अप्रैल 2026 को गंगा सप्तमी का पर्व है। गंगा पूजन, जलाभिषेक, स्तोत्र पाठ और संध्या आरती के लिए यह अत्यंत शुभ अवसर माना जाता है।</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">30</div><div class="month">अप्रैल</div></div>
+        <div class="event-info">
+          <h3>नरसिंह जयंती</h3>
+          <p>गुरुवार, 30 अप्रैल 2026 को भगवान नरसिंह की जयंती है। इस अवसर पर विष्णु सहस्रनाम पाठ, विशेष भोग, आरती और प्रसाद वितरण रखा जा सकता है।</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">25</div><div class="month">मई</div></div>
+        <div class="event-info">
+          <h3>गंगा दशहरा</h3>
+          <p>सोमवार, 25 मई 2026 को गंगा दशहरा है। गंगाजल अभिषेक, पुण्य स्नान, दान, भजन और गंगा माता की स्तुति के साथ यह दिन मंदिर आयोजन के लिए विशेष महत्व रखता है।</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">25</div><div class="month">जून</div></div>
+        <div class="event-info">
+          <h3>निर्जला एकादशी</h3>
+          <p>गुरुवार, 25 जून 2026 को निर्जला एकादशी का व्रत है। भगवान विष्णु के पूजन, एकादशी पाठ, सत्संग और जल-सेवा जैसे धार्मिक कार्यों के लिए यह अत्यंत पुण्यदायी दिन है।</p>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">04</div><div class="month">सितंबर</div></div>
+        <div class="event-info">
+          <h3>कृष्ण जन्माष्टमी</h3>
+          <p>गाजीपुर के पंचांग अनुसार कृष्ण जन्माष्टमी शुक्रवार, 4 सितंबर 2026 को है। इस दिन मध्यरात्रि पूजा, झूला सज्जा, भजन-कीर्तन, बाल गोपाल अभिषेक और प्रसाद वितरण आयोजित किया जा सकता है।</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-media-wrap">
+      <div class="event-media-card">
+        <button class="event-media-toggle" type="button" aria-expanded="false">
+          <div class="event-media-toggle-text">
+            <h3>कृष्ण जन्माष्टमी · 4 सितंबर 2026</h3>
+            <p>क्लिक करें और इस आयोजन की फोटो व वीडियो देखें।</p>
+          </div>
+          <span class="event-media-icon">+</span>
+        </button>
+        <div class="event-media-panel">
+          <p class="event-media-panel-copy">नीचे डमी फाइलें जोड़ी गई हैं। बाद में इन्हें इसी फ़ाइल नाम से बदल दें, या अपने नए फ़ाइल पथ यहां अपडेट कर दें।</p>
+          <div class="event-media-grid">
+            <div class="event-media-item">
+              <img src="assets/events/krishna-janmashtami/photos/photo-placeholder.svg" alt="कृष्ण जन्माष्टमी फोटो प्लेसहोल्डर">
+              <div class="media-meta">
+                <div class="media-label">Photo</div>
+                <div class="media-title">जन्माष्टमी फोटो स्लॉट</div>
+                <div class="media-path">assets/events/krishna-janmashtami/photos/photo-placeholder.svg</div>
+              </div>
+            </div>
+            <div class="event-media-item">
+              <video controls playsinline preload="metadata" poster="assets/events/krishna-janmashtami/videos/video-placeholder.svg">
+                <source src="assets/events/krishna-janmashtami/videos/video1.mp4" type="video/mp4">
+                आपका ब्राउज़र वीडियो प्ले नहीं कर पा रहा है।
+              </video>
+              <div class="media-meta">
+                <div class="media-label">Video</div>
+                <div class="media-title">जन्माष्टमी वीडियो स्लॉट</div>
+                <div class="media-path">assets/events/krishna-janmashtami/videos/video1.mp4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="earlier-events" class="gallery-bg">
+  <div class="section-inner">
+    <h2 class="section-title">पूर्व कार्यक्रम</h2>
+    <p class="section-sub">हाल में सम्पन्न आयोजनों की फोटो और वीडियो झलकियां</p>
+
+    <div class="event-media-wrap">
+      <div class="event-media-card">
+        <button class="event-media-toggle" type="button" aria-expanded="false">
+          <div class="event-media-toggle-text">
+            <h3>भागवत कथा · 30 नवंबर 2025</h3>
+            <p>क्लिक करें और इस पूर्व आयोजन की फोटो व वीडियो देखें।</p>
+          </div>
+          <span class="event-media-icon">+</span>
+        </button>
+        <div class="event-media-panel">
+          <p class="event-media-panel-copy">यह सेक्शन भागवत कथा से जुड़ी झलकियों के लिए है।</p>
+          <div class="event-media-grid">
+            <div class="event-media-item">
+              <div class="media-stack">
+                <div class="media-unit">
+                  <video controls playsinline preload="metadata">
+                    <source src="assets/events/bhagwat-katha/videos/video1.mp4" type="video/mp4">
+                    आपका ब्राउज़र वीडियो प्ले नहीं कर पा रहा है।
+                  </video>
+                  <div class="media-subtitle">वीडियो 1</div>
+                </div>
+              </div>
+            </div>
+            <div class="event-media-item">
+              <div class="media-stack">
+                <div class="media-unit">
+                  <video controls playsinline preload="metadata">
+                    <source src="assets/events/bhagwat-katha/videos/video2.mp4" type="video/mp4">
+                    आपका ब्राउज़र वीडियो प्ले नहीं कर पा रहा है।
+                  </video>
+                  <div class="media-subtitle">वीडियो 2</div>
+                </div>
+              </div>
+              <div class="media-meta">
+                <div class="media-label">Video</div>
+                <div class="media-title">भागवत कथा वीडियो</div>
+                <div class="media-path">assets/events/bhagwat-katha/videos/video1.mp4, video2.mp4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-media-card">
+        <button class="event-media-toggle" type="button" aria-expanded="false">
+          <div class="event-media-toggle-text">
+            <h3>सुंदरकांड पाठ · 31 मार्च 2026</h3>
+            <p>क्लिक करें और इस पूर्व आयोजन की फोटो व वीडियो देखें।</p>
+          </div>
+          <span class="event-media-icon">+</span>
+        </button>
+        <div class="event-media-panel">
+          <p class="event-media-panel-copy">यहां सुंदरकांड पाठ के फ़ोटो और वीडियो के लिए अलग स्लॉट दिए गए हैं।</p>
+          <div class="event-media-grid">
+            <div class="event-media-item">
+              <img src="assets/events/sunderkand-path/photos/Photo1.jpg" alt="सुंदरकांड पाठ फोटो 1">
+              <img src="assets/events/sunderkand-path/photos/Photo3.jpg" alt="सुंदरकांड पाठ फोटो 3">
+              <div class="media-meta">
+                <div class="media-label">Photo</div>
+                <div class="media-title">सुंदरकांड पाठ फोटो</div>
+                <div class="media-path">assets/events/sunderkand-path/photos/Photo1.jpg, Photo3.jpg</div>
+               </div>
+            </div>
+            <div class="event-media-item">
+              <div class="media-stack">
+                <div class="media-unit">
+                  <video controls playsinline preload="metadata">
+                    <source src="assets/events/sunderkand-path/videos/video1.mp4" type="video/mp4">
+                    आपका ब्राउज़र वीडियो प्ले नहीं कर पा रहा है।
+                  </video>
+                  <div class="media-subtitle">वीडियो 1</div>
+                </div>
+                <div class="media-unit">
+                  <video controls playsinline preload="metadata">
+                    <source src="assets/events/sunderkand-path/videos/video2.mp4" type="video/mp4">
+                    आपका ब्राउज़र वीडियो प्ले नहीं कर पा रहा है।
+                  </video>
+                  <div class="media-subtitle">वीडियो 2</div>
+                </div>
+              </div>
+              <div class="media-meta">
+                <div class="media-label">Video</div>
+                <div class="media-title">सुंदरकांड पाठ वीडियो</div>
+                <div class="media-path">assets/events/sunderkand-path/videos/video1.mp4, video2.mp4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-bg">
+  <div class="section-inner">
+    <h2 class="section-title">मंदिर गैलरी</h2>
+    <p class="section-sub">भक्ति, सौंदर्य और उत्सव के पावन दृश्य</p>
+    <div class="gallery-grid">
+      <div class="gallery-item full-view"><img src="assets/images/Mandir1.png" alt="मंदिर का पूर्ण दृश्य 1"></div>
+      <div class="gallery-item full-view"><img src="assets/images/Mandir2.png" alt="मंदिर का पूर्ण दृश्य 2"></div>
+      <div class="gallery-item full-view"><img src="assets/images/Mandir3.png" alt="मंदिर का पूर्ण दृश्य 3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">पधारें और संपर्क करें</h2>
+    <p class="section-sub">हम हाथ जोड़कर आपका स्वागत करते हैं 🙏</p>
+    <div class="contact-grid">
+      <div>
+        <div class="map-embed">
+          <iframe
+            title="श्री शिव मंदिर गूगल मैप"
+            src="https://maps.google.com/maps?q=Shri%20Shiv%20Mandir%20Chandra%20Colony%20Ghazipur%20Uttar%20Pradesh&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="contact-info">
+          <p><strong>पता</strong><br>श्री शिव मंदिर, <br>चंद्रा कॉलोनी, गाजीपुर, उत्तर प्रदेश — 233001</p>
+          <p><strong>फोन</strong><br><a href="tel:+91-">coming soon </a></p>
+          <p><strong>ईमेल</strong><br><a href="">coming soon</a></p>
+          <p><strong>मंदिर समय</strong><br>प्रति दिन 5:00 AM – 9:30 PM</p>
+          <p><strong>निकटतम स्थान</strong><br>बुल डॉग जिम के बगल में</p>
+        </div>
+        <div class="pujari-card">
+          <h3>पुजारी जी जानकारी</h3>
+          <div class="pujari-media">
+            <div class="pujari-photo">
+              <img src="assets/images/pujari.png" alt="पुजारी जी फोटो">
+            </div>
+          </div>
+          <p><strong>नाम:</strong> पंडित अशोक तिवारी जी</p>
+          <p><strong>सेवा समय:</strong> प्रातः 6:30 बजे से प्रातः 7:00 बजे तक, फिर सायं 6:30 बजे से 7:00 बजे तक</p>
+          <p><strong>विशेष सेवाएं:</strong> रुद्राभिषेक, गृह शांति पूजा, संकल्प पूजा, कथा एवं विशेष उत्सव अनुष्ठान</p>
+          <p><strong>संपर्क:</strong> <a href="tel:+918176009139">+91 8176009139</a></p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3 style="font-family:'Noto Serif Devanagari','Cinzel Decorative',serif; font-size:1rem; color:var(--dark-brown); margin-bottom:1.25rem; letter-spacing:0.04em;">हमें संदेश भेजें</h3>
+        <input type="text" placeholder="आपका पूरा नाम" />
+        <input type="email" placeholder="ईमेल पता" />
+        <input type="tel" placeholder="फोन नंबर (वैकल्पिक)" />
+        <select>
+          <option value="" disabled selected>संदेश का उद्देश्य</option>
+          <option>सामान्य जानकारी</option>
+          <option>पूजा बुकिंग</option>
+          <option>कार्यक्रम जानकारी</option>
+          <option>सेवा संबंधी पूछताछ</option>
+          <option>स्वयंसेवा</option>
+          <option>अन्य</option>
+        </select>
+        <textarea placeholder="अपना संदेश लिखें..."></textarea>
+        <button class="btn btn-primary" style="width:100%; font-size:0.78rem;" onclick="handleFormSubmit()">संदेश भेजें 🙏</button>
+        <p id="form-success" style="display:none; text-align:center; margin-top:1rem; color:var(--green); font-style:italic;">आपका संदेश भेज दिया गया है। जय श्री शिव! 🙏</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p style="font-family:'Noto Serif Devanagari','Cinzel Decorative',serif; color:var(--gold-light); font-size:0.9rem; letter-spacing:0.05em; margin-bottom:0.5rem;">श्री शिव मंदिर, चंद्रा कॉलोनी, गाजीपुर</p>
+  <div class="footer-links">
+    <a href="#about">परिचय</a>
+    <a href="#timings">समय</a>
+    <a href="#events">कार्यक्रम</a>
+    <a href="#contact">संपर्क</a>
+  </div>
+  <p>जय श्री शिव · सर्वे भवन्तु सुखिनः</p>
+  <p style="margin-top:0.5rem; font-size:0.8rem; opacity:0.6;">© 2025 श्री शिव मंदिर। श्रद्धा के साथ निर्मित।</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('open');
+  }
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.event-media-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const currentCard = toggle.closest('.event-media-card');
+      const willOpen = !currentCard.classList.contains('open');
+
+      document.querySelectorAll('.event-media-card').forEach(card => {
+        card.classList.remove('open');
+        const cardToggle = card.querySelector('.event-media-toggle');
+        if (cardToggle) cardToggle.setAttribute('aria-expanded', 'false');
+        card.querySelectorAll('video').forEach(video => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+
+      if (willOpen) {
+        currentCard.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Simple form feedback
+  function handleFormSubmit() {
+    const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+    let valid = true;
+    inputs.forEach(i => { if (!i.value.trim()) valid = false; });
+    if (valid) {
+      document.getElementById('form-success').style.display = 'block';
+      inputs.forEach(i => i.value = '');
+    } else {
+      alert('कृपया संदेश भेजने से पहले सभी आवश्यक जानकारी भरें।');
+    }
+  }
+
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.timing-card, .event-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
